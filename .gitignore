@@ -6,6 +6,8 @@
 #
 .DS_Store
 
+.idea
+
 # Xcode
 #
 build/
@@ -57,6 +59,9 @@ buck-out/
 */fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
+
+#env files
+.env
 
 # Bundle artifact
 *.jsbundle
