@@ -2,6 +2,9 @@ import * as Device from 'expo-device';
 import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { useEffect } from 'react'
+import { supabase } from '../lib/supabase'
+
 import { AnimatedIcon } from '@/components/animated-icon';
 import { HintRow } from '@/components/hint-row';
 import { ThemedText } from '@/components/themed-text';
@@ -29,6 +32,11 @@ function getDevMenuHint() {
 }
 
 export default function HomeScreen() {
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data, error }) => {
+      console.log('session:', data.session, 'error:', error)
+    })
+  }, [])
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
